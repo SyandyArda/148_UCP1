@@ -30,4 +30,13 @@ db.sequelize.sync()
         }
     });
 
- 
+      app.get('/hotel', async (req, res) => {
+        try {
+            const hotels = await db.Hotel.findAll();
+            res.send(hotels);
+        } catch (error) {
+            res.send({message: error.message});
+        }
+    });
+
+     
