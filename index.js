@@ -20,5 +20,14 @@ db.sequelize.sync()
         console.log(err);
     });
 
+    app.post('/hotel', async (req, res) => {
+        const data = req.body;
+        try {
+            const hotel = await db.hotel.create(data);
+            res.send(hotel);
+        } catch (error) {
+           res.status(500).send({message: error.message});
+        }
+    });
 
-
+ 
