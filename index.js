@@ -23,7 +23,7 @@ db.sequelize.sync()
     app.post('/hotel', async (req, res) => {
         const data = req.body;
         try {
-            const hotel = await db.hotel.create(data);
+            const hotel = await db.Hotel.create(data);
             res.send(hotel);
         } catch (error) {
            res.status(500).send({message: error.message});
